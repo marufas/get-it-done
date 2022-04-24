@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>479</height>
+    <width>799</width>
+    <height>465</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,82 +19,21 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>671</width>
+      <width>771</width>
       <height>411</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="4">
-      <layout class="QVBoxLayout" name="verticalLayout_2"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="labelTasks">
-       <property name="text">
-        <string>Tasks</string>
-       </property>
+     <item row="0" column="1">
+      <widget class="QTreeWidget" name="bucketTree">
+       <column>
+        <property name="text">
+         <string>Buckets</string>
+        </property>
+       </column>
       </widget>
      </item>
      <item row="1" column="3">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="6" column="1">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Project</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Bucket</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QComboBox" name="comboBox"/>
-       </item>
-       <item row="7" column="1">
-        <widget class="QComboBox" name="comboBox_2"/>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="2">
-        <widget class="QLineEdit" name="lineEdit_2"/>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QLineEdit" name="lineEdit"/>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Next action</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="1">
-      <widget class="QTreeView" name="treeView"/>
-     </item>
-     <item row="1" column="2" rowspan="2">
-      <widget class="QListView" name="taskList"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTreeView" name="toDoList"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="labelBuckets">
-       <property name="text">
-        <string>Buckets</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QLabel" name="label_5">
@@ -108,6 +47,81 @@
        </item>
       </layout>
      </item>
+     <item row="0" column="4">
+      <layout class="QVBoxLayout" name="verticalLayout_2"/>
+     </item>
+     <item row="0" column="3">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="6" column="1">
+        <widget class="QLabel" name="labelProject">
+         <property name="text">
+          <string>Project</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="labelBucket">
+         <property name="text">
+          <string>Bucket</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QComboBox" name="detailBucket"/>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="detailProject"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelName">
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0" colspan="2">
+        <widget class="QLineEdit" name="detailNextAction"/>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QLineEdit" name="detailName"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="labelNextAction">
+         <property name="text">
+          <string>Next action</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="1">
+      <widget class="QTreeWidget" name="projectTree">
+       <column>
+        <property name="text">
+         <string>Projects</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="0" column="2" rowspan="2">
+      <widget class="QTreeWidget" name="taskList">
+       <column>
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Priority</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </column>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -116,7 +130,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>716</width>
+     <width>799</width>
      <height>21</height>
     </rect>
    </property>
