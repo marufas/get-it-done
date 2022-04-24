@@ -79,18 +79,8 @@
          </property>
         </widget>
        </item>
-       <item row="9" column="0" colspan="2">
-        <widget class="QLineEdit" name="detailNextAction"/>
-       </item>
        <item row="1" column="0" colspan="2">
         <widget class="QLineEdit" name="detailName"/>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="labelNextAction">
-         <property name="text">
-          <string>Next action</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </item>
@@ -104,7 +94,25 @@
       </widget>
      </item>
      <item row="0" column="2" rowspan="2">
-      <widget class="QTreeWidget" name="taskList">
+      <widget class="QTableWidget" name="taskTable">
+       <property name="selectionMode">
+        <enum>QAbstractItemView::SingleSelection</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
        <column>
         <property name="text">
          <string>Name</string>
@@ -113,11 +121,6 @@
        <column>
         <property name="text">
          <string>Priority</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>ID</string>
         </property>
        </column>
       </widget>
