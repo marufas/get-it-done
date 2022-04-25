@@ -6,12 +6,12 @@ from ipc_client import IpcClient
 
 
 class GuiController():
-    def __init__(self):
+    def __init__(self, client_ipc):
         self.main_window = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.main_window)
         self.main_window.show()
-        self.ipc = IpcClient()
+        self.ipc = client_ipc
         self.connect_to_back_end()
         self.object_library = {}
         self.initialise_ui()
@@ -60,7 +60,18 @@ class GuiController():
 
         # TODO: add items according to tag
 
-    def _add_tree_item(self, tree, name, id, description="", parent=""):
+    def update_task_details(self, task_id=None):
+        if task_id is None:
+            return
+        details = self.ipc.get_task_details(task_id)
+        self.ui.detailName.setText(details["name"])
+        self.ui.detailBucket.setText(self.object_library[details["bucket"]].text(0))
+        self.ui.detailProject.setText(self.object_library[details["project"]].text(0))
+        self.ui.detailPriority.setText(details["priority"])
+        self.ui.detailComments.setText(details["comments"])
+
+
+    def _add_tree_item(self, tree, id, name, description="", parent=""):
         if not parent:
             parent = tree
         else:
@@ -83,5 +94,5 @@ class GuiController():
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    win = GuiController()
+    win = GuiController(IpcClient())
     sys.exit(app.exec_())

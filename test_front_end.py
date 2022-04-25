@@ -8,16 +8,10 @@ from PyQt5 import QtWidgets
 from front_end import GuiController
 
 
-class TestGuiController(GuiController):
-    def connect_to_back_end(self):
-        self.ipc = MagicMock()
-        self.ipc.get_buckets.return_value = {}
-
-
 class TestCases(TestCase):
     def setUp(self) -> None:
         self.app = QtWidgets.QApplication(sys.argv)
-        self.test_gui = TestGuiController()
+        self.test_gui = GuiController(MagicMock())
 
     def tearDown(self) -> None:
         pass
@@ -44,7 +38,16 @@ class TestCases(TestCase):
         r1c1 = self.test_gui.ui.taskTable.item(1, 1)
         self.assertEqual("51", r1c1.text())
 
-        # , "tags": "0,2", "complete": "0", "next_action": "Fill in", "comments": "Test test\nMore test"}})
+
 
     def test_task_details_are_loaded(self):
-        details = {}
+        buckets = OrderedDict({"0": {"name": "root", "parent": ""},
+                               "1": {"name": "subbucket", "parent": "0"},
+                               "2": {"name": "secondBucket", "parent": ""}})
+        details = {"name": "Detailed task", "priority": "53" , "bucket": "0", "project": "1", "complete": "0", "comments": "Test test\nMore test"}
+        self.test_gui.ipc.get_task_details.return_value = details
+        self.test_gui.ipc.get_buckets.return_value = buckets
+        self.test_gui.update_buckets()
+        self.test_gui.update_task_details("0")
+
+        self.assertEqual("subbucket", self.test_gui.ui.detailProject.text())

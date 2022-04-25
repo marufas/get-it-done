@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>465</height>
+    <width>939</width>
+    <height>551</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,11 +19,14 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>771</width>
-      <height>411</height>
+      <width>851</width>
+      <height>321</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
      <item row="0" column="1">
       <widget class="QTreeWidget" name="bucketTree">
        <column>
@@ -43,58 +46,25 @@
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit"/>
+        <widget class="QTextEdit" name="detailComments"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="detailSave">
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
      <item row="0" column="4">
       <layout class="QVBoxLayout" name="verticalLayout_2"/>
      </item>
-     <item row="0" column="3">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="6" column="1">
-        <widget class="QLabel" name="labelProject">
-         <property name="text">
-          <string>Project</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="labelBucket">
-         <property name="text">
-          <string>Bucket</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QComboBox" name="detailBucket"/>
-       </item>
-       <item row="7" column="1">
-        <widget class="QComboBox" name="detailProject"/>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="labelName">
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QLineEdit" name="detailName"/>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTreeWidget" name="projectTree">
-       <column>
-        <property name="text">
-         <string>Projects</string>
-        </property>
-       </column>
-      </widget>
-     </item>
      <item row="0" column="2" rowspan="2">
       <widget class="QTableWidget" name="taskTable">
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
        <property name="selectionMode">
         <enum>QAbstractItemView::SingleSelection</enum>
        </property>
@@ -125,6 +95,80 @@
        </column>
       </widget>
      </item>
+     <item row="1" column="1">
+      <widget class="QTreeWidget" name="projectTree">
+       <column>
+        <property name="text">
+         <string>Projects</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="7" column="0">
+        <widget class="QLabel" name="labelBucket">
+         <property name="text">
+          <string>Bucket</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelName">
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="labelProject">
+         <property name="text">
+          <string>Project</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLabel" name="detailProject">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Priority</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QLineEdit" name="detailName"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="detailPriority">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLabel" name="detailBucket">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -133,7 +177,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>939</width>
      <height>21</height>
     </rect>
    </property>
