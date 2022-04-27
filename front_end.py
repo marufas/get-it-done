@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 from gui import Ui_MainWindow
-from ipc_client import IpcClient
+from ipc_front_end import IpcClient
 
 
 class GuiController():
