@@ -22,8 +22,12 @@ class IpcFrontEnd:
         self.ipc.send_message(json.dumps({"cmd": "get_buckets"}))
         try:
             data = self.data_queue.get(block=True, timeout=3)
+            data = json.loads(data)
         except queue.Empty:
             print("Did not get a response from back end!")
+            raise ConnectionError("No response from back end")
+        except json.JSONDecodeError:
+            raise ValueError("Request could not be processed")
         return data
 
     def get_tasks(self, bucket_id):

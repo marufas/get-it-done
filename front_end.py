@@ -2,7 +2,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 from gui import Ui_MainWindow
-from ipc_front_end import IpcClient
 
 
 class GuiController():
@@ -12,12 +11,12 @@ class GuiController():
         self.ui.setupUi(self.main_window)
         self.main_window.show()
         self.ipc = client_ipc
-        self.connect_to_back_end()
         self.object_library = {}
         self.initialise_ui()
 
-    def connect_to_back_end(self):
-        self.ipc.connect()
+    def show_ui(self):
+        app = QtWidgets.QApplication(sys.argv)
+        sys.exit(app.exec_())
 
     def initialise_ui(self):
         self.connect_ui_elements()
@@ -94,5 +93,5 @@ class GuiController():
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    win = GuiController(IpcClient())
+    win = GuiController()
     sys.exit(app.exec_())
