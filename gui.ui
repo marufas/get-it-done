@@ -93,6 +93,11 @@
          <string>Priority</string>
         </property>
        </column>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </column>
       </widget>
      </item>
      <item row="1" column="1">
@@ -130,7 +135,7 @@
        <item row="8" column="1">
         <widget class="QLabel" name="detailProject">
          <property name="text">
-          <string>TextLabel</string>
+          <string> </string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -160,7 +165,7 @@
        <item row="7" column="1">
         <widget class="QLabel" name="detailBucket">
          <property name="text">
-          <string>TextLabel</string>
+          <string> </string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

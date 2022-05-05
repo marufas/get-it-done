@@ -13,7 +13,7 @@ class IpcBackEnd:
         try:
             command = data['cmd']
             callback = self.actions[command]
-            response = callback(message)
+            response = callback(data)
             self.ipc.send_message(json.dumps(response))
         except Exception as err:
             print("Problem with message %s. Error: %r" % (message, err))
